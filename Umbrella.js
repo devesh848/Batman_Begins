@@ -1,24 +1,19 @@
 class Umbrella{
-    constructor(x,y,r){ 
+    constructor(x,y){ 
         var options = {
             isStatic: true,
-        }
-        this.x=x; 
-        this.y=y; 
-        this.r=r; 
-        this.body = Bodies.circle(this.x,this.y,this.r,options); 
+        } 
+        this.r=50; 
+        this.body = Bodies.circle(x,y,50,options); 
         this.image = loadImage("umbrella.png"); 
         World.add(world, this.body);
     } 
 
 
     display(){
-        var pos = this.body.position; 
-        push(); 
-        translate(pos.x,pos.y);
+        var pos = this.body.position;
         ellipseMode(RADIUS); 
         fill(255);
-        image(this.image,0,0,this.r,this.r); 
-        pop();
+        image(this.image,pos.x,pos.y,300,300); 
     }
 } 
